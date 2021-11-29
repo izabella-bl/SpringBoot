@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Serie</title>
+</head>
+<body>
+    <h1>Cadastro de serie</h1>
+    <form action="/serie/salvar" method="post">
+        <input type="hidden" name="id" id="id" th:value="${serie.id}">
+        nome: <input type="text" name="nome" id="nome" th:value="${serie.nome}"> <br>
+        ano: <input type="text" name="ano" id="ano" th:value="${serie.ano}"> <br>
+        genero: <input type="text" name="genero" id="genero" th:value="${serie.genero}"> <br>
+        <input type="submit" value="Salvar">
+    </form>
+    <br />
+    <a href="/serie">Voltar para lista </a>
+    </br >
+    
+</body>
+</html>

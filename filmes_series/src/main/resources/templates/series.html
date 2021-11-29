@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>series</title>
+</head>
+<body>
+    <h1>Series</h1>
+    <h2>Lista de Series</h2>
+
+    <a href="/serie/form">Cadastrar novo</a>
+    <br />
+
+    <details>
+         <summary>Series</summary>
+         <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Ano</th>
+                    <th>Genero</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="s: ${series}">
+                    <td th:text="${s.id}"></td>
+                    <td th:text="${s.nome}"></td>
+                    <td th:text="${s.ano}"></td>
+                    <td th:text="${s.genero}"></td>
+                    <td>
+                        <a th:href="@{'/serie/editar/'+${s.id}}">Editar</a> |
+                        <a th:href="@{'/serie/deletar/'+${s.id}}">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+</body>
+</html>

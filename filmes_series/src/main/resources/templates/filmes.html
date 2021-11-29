@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+</head>
+<body>
+    <h1>Filmes</h1>
+    <h2>Lista de Filmes</h2>
+
+    <a href="/filme/form">Cadastrar novo</a>
+    <br />
+
+    <details>
+         <summary>Filmes</summary>
+         <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Nome Diretor</th>
+                    <th>Genero</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="f : ${filmes}">
+                    <td th:text="${f.id}"></td>
+                    <td th:text="${f.nome}"></td>
+                    <td th:text="${f.nome_diretor}"></td>
+                    <td th:text="${f.genero}"></td>
+                    <td>
+                        <a th:href="@{'/filme/editar/'+${f.id}}">Editar</a> |
+                        <a th:href="@{'/filme/deletar/'+${f.id}}">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </details>
+
+</body>
+</html>
