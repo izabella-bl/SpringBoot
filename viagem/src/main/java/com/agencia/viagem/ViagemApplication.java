@@ -29,11 +29,14 @@ public class ViagemApplication  implements CommandLineRunner{
 		Cliente modelCliente = new Cliente();
 		Agencia modelAgencia = new Agencia();
 
-		modelCliente.setNome("Ana");
-		modelCliente.setSobrenome("Maria");
-		modelCliente.setIdade(56);
+		//modelCliente.setId(3);
+		modelCliente.setNome("Leandra");
+		modelCliente.setSobrenome("de Oliveira");
+		modelCliente.setIdade(44);
 
 		//cr.save(modelCliente);
+		//cr.save(modelCliente);
+		//cr.deleteById(7);
 
 		modelAgencia.setNome("Agencia de viagem 3");
 		modelAgencia.setTelefone("(62)83828-9829");
@@ -44,6 +47,8 @@ public class ViagemApplication  implements CommandLineRunner{
 		
 		cr.findAll().forEach(c -> System.out.printf("%d - %s %s - %d \n",c.getId(),c.getNome(),c.getSobrenome(),c.getIdade()));
 		System.out.println("\n");
+
+
 	}
 
 }
