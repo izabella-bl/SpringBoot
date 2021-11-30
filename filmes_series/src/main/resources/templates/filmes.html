@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmes</title>
-</head>
+    <head th:replace="~{base::head(Filmes)}"></head>
 <body>
-    <h1>Filmes</h1>
-    <h2>Lista de Filmes</h2>
-
-    <a href="/filme/form">Cadastrar novo</a>
-    <br />
-
-    <details>
-         <summary>Filmes</summary>
-         <table>
+    <header th:replace="~{base::cabecalho('Filme', '/filme/form', '/filme', '/serie', 'Serie')}"></header> 
+    <main>
+        <h1 class="titulo">Filmes</h1>
+        <h2>Lista de filmes</h2>
+        
+        <a class="btn btn-success esquerda" href="/filme/form">Cadastrar novo</a>
+        <br />
+        
+     
+         <table  class="table table-striped">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -32,13 +28,13 @@
                     <td th:text="${f.nome_diretor}"></td>
                     <td th:text="${f.genero}"></td>
                     <td>
-                        <a th:href="@{'/filme/editar/'+${f.id}}">Editar</a> |
-                        <a th:href="@{'/filme/deletar/'+${f.id}}">Deletar</a>
+                        <a class="btn btn-warning" th:href="@{'/filme/editar/'+${f.id}}">Editar</a> |
+                        <a class="btn btn-danger" th:href="@{'/filme/deletar/'+${f.id}}">Deletar</a>
                     </td>
                 </tr>
             </tbody>
-        </table>
-    </details>
-
+          </table>
+        
+    </main>   
 </body>
 </html>

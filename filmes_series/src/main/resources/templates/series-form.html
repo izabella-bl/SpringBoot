@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Serie</title>
-</head>
+<head th:replace="~{base :: head(Filmes-Cadastrar)}"></head>
 <body>
-    <h1>Cadastro de serie</h1>
-    <form action="/serie/salvar" method="post">
-        <input type="hidden" name="id" id="id" th:value="${serie.id}">
-        nome: <input type="text" name="nome" id="nome" th:value="${serie.nome}"> <br>
-        ano: <input type="text" name="ano" id="ano" th:value="${serie.ano}"> <br>
-        genero: <input type="text" name="genero" id="genero" th:value="${serie.genero}"> <br>
-        <input type="submit" value="Salvar">
-    </form>
-    <br />
-    <a href="/serie">Voltar para lista </a>
-    </br >
+    <header th:replace="~{base::cabecalho('Serie','/serie/form','/serie','/filme','Filme')}"></header>
+    <main>
+        <h1>Cadastro de Serie</h1>
+        <form action="/serie/salvar" method="post">
+            <input type="hidden" name="id" id="id" th:value="${serie.id}">
     
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label>            
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${serie.nome}">
+            </div>
+            <div class="mb-3">
+                <label for="nome_diretor" class="form-label">ano</label>                
+                <input class="form-control" type="text" name="ano" id="ano" th:value="${serie.ano}">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">genero:</label>                 
+                <input class="form-control" type="text" name="genero" id="genero" th:value="${serie.genero}">
+            </div>      
+            <input class="btn  btn-primary" type="submit" value="Salvar">
+        </form>
+        <br />
+        <a class="btn  btn-secondary" href="/serie">Voltar para lista </a>
+        <br />
+    </main>
 </body>
 </html>

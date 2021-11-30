@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<head th:replace="~{base :: head(Filmes-Cadastrar)}"></head>
 <body>
-    <h1>Cadastro de filmes</h1>
-    <form action="/filme/salvar" method="post">
-        <input type="hidden" name="id" id="id" th:value="${filme.id}">
-        nome: <input type="text" name="nome" id="nome" th:value="${filme.nome}"> <br>
-        nome diretor: <input type="text" name="nome_diretor" id="nome_diretor" th:value="${filme.nome_diretor}"> <br>
-        genero: <input type="text" name="genero" id="genero" th:value="${filme.genero}"> <br>
-        <input type="submit" value="Salvar">
-    </form>
-    <br />
-    <a href="/filmes">Voltar para lista </a>
-    </br >
+    <header th:replace="~{base::cabecalho('Filme', '/filme/form', '/filme', '/serie','Serie')}"></header>
+    <main>
+        <h1>Cadastro de filmes</h1>
+        <form action="/filme/salvar" method="post">
+            <input type="hidden" name="id" id="id" th:value="${filme.id}">
+    
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label>            
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${filme.nome}">
+            </div>
+            <div class="mb-3">
+                <label for="nome_diretor" class="form-label">nome diretor:</label>                
+                <input class="form-control" type="text" name="nome_diretor" id="nome_diretor" th:value="${filme.nome_diretor}">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">genero:</label>                 
+                <input class="form-control" type="text" name="genero" id="genero" th:value="${filme.genero}">
+            </div>      
+            <input class="btn  btn-primary" type="submit" value="Salvar">
+        </form>
+        <br />
+        <a class="btn  btn-secondary" href="/filme">Voltar para lista </a>
+        <br />
+    </main>
 </body>
 </html>

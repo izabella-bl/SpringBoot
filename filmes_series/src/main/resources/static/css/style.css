@@ -1,0 +1,18 @@
+.esquerda{
+    float: left;
+    margin-bottom: 1em;
+}
+main{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+form{
+    text-align: left;
+}
+
+summary{
+     color: aquamarine;
+     font-size: 30px;
+}
