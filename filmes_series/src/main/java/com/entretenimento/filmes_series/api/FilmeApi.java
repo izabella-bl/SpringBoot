@@ -12,33 +12,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/filme")
 public class FilmeApi {
 
     @Autowired
     private FilmesRepository repository;
     
-    @GetMapping("/api/filme")
-    public List<Filme> filmes(){
-        List<Filme> lista = (List<Filme>)repository.findAll();
-        return lista;        
+    @GetMapping
+    public List<Filme> filme(String nome){
+        if(nome != null){
+            return (List<Filme>)repository.findByNome(nome);
+        }
+        return (List<Filme>)repository.findAll();
     }
     
-    @PostMapping("/api/filme")    
+    @PostMapping   
     public String salvar(@RequestBody Filme model){
         repository.save(model);
         return "salvo com sucesso";
     }
 
-    @DeleteMapping("/api/filme/{id}")    
+    @DeleteMapping("/{id}")    
     public String deletar(@PathVariable int id){
         repository.deleteById(id);
         return "deletado com sucesso";
     }
 
-    @PutMapping("/api/filme/{id}")    
+    @PutMapping("/{id}")    
     public String update(@RequestBody Filme model, @PathVariable int id){
         if(model.getId() == id){
             repository.save(model);

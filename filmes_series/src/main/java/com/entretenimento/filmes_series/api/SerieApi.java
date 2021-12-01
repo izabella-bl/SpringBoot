@@ -12,33 +12,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/serie")
 public class SerieApi {
     
     @Autowired
     private SerieRespository repository;
     
-    @GetMapping("/api/serie")
-    public List<Serie> series(){
-        List<Serie> lista = (List<Serie>)repository.findAll();
-        return lista;        
+    @GetMapping
+    public List<Serie> series(String nome){
+        if(nome != null){
+            return (List<Serie>)repository.findByNome(nome);
+        }
+        return (List<Serie>)repository.findAll();
     }
     
-    @PostMapping("/api/serie")    
+    @PostMapping    
     public String salvar(@RequestBody Serie model){
         repository.save(model);
         return "salvo com sucesso";
     }
 
-    @DeleteMapping("/api/serie/{id}")    
+    @DeleteMapping("/{id}")    
     public String deletar(@PathVariable int id){
         repository.deleteById(id);
         return "deletado com sucesso";
     }
 
-    @PutMapping("/api/serie/{id}")    
+    @PutMapping("/{id}")    
     public String update(@RequestBody Serie model, @PathVariable int id){
         if(model.getId() == id){
             repository.save(model);

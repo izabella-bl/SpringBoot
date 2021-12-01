@@ -26,7 +26,7 @@
                     <td th:text="${s.id}"></td>
                     <td th:text="${s.nome}"></td>
                     <td th:text="${s.ano}"></td>
-                    <td th:text="${s.genero}"></td>
+                    <td th:text="${s.genero_id}"></td>
                     <td>
                         <a class="btn btn-warning" th:href="@{'/serie/editar/'+${s.id}}">Editar</a> |
                         <a class="btn btn-danger" th:href="@{'/serie/deletar/'+${s.id}}">Deletar</a>

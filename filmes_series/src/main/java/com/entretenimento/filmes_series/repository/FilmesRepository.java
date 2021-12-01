@@ -1,5 +1,7 @@
 package com.entretenimento.filmes_series.repository;
 
+import java.util.List;
+
 import com.entretenimento.filmes_series.model.Filme;
 
 import org.springframework.data.domain.Sort;
@@ -12,5 +14,7 @@ public interface FilmesRepository extends PagingAndSortingRepository<Filme,Integ
         
         return findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
+
+    List<Filme> findByNome(String nome);
     
 }

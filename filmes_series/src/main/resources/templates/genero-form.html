@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{base :: head(Genero-Cadastrar)}"></head>
+<body>
+    <header th:replace="~{base::cabecalho('Genero', '/genero/form', '/genero', '/filme','Filme')}"></header>
+    <main>
+        <h1>Cadastro de genero</h1>
+        <form action="/genero/salvar" method="post">
+            <input type="hidden" name="id" id="id" th:value="${generos.id}">
+    
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label>            
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${generos.nome}">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">descrição:</label>                 
+                <input class="form-control" type="text" name="descricao" id="descricao" th:value="${generos.descricao}">
+            </div>      
+            <input class="btn  btn-primary" type="submit" value="Salvar">
+        </form>
+        <br />
+        <a class="btn  btn-secondary" href="/filme">Voltar para lista </a>
+        <br />
+    </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head th:replace="~{base::head(Filmes)}"></head>
+<body>
+    <header th:replace="~{base::cabecalho('Genero', '/genero/form', '/genero', '/filme', 'Filme')}"></header> 
+    <main>
+        <h1 class="titulo">Genero</h1>
+        <h2>Lista de Genero</h2>
+        
+        <a class="btn btn-success esquerda" href="/genero/form">Cadastrar novo</a>
+        <br />
+        
+     
+         <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Direçao</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="g : ${generos}">
+                    <td th:text="${g.id}"></td>
+                    <td th:text="${g.nome}"></td>
+                    <td th:text="${g.descricao}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{'/genero/editar/'+${g.id}}">Editar</a> |
+                        <a class="btn btn-danger" th:href="@{'/genero/deletar/'+${g.id}}">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        
+    </main>   
+</body>
+</html>
